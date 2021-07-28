@@ -1,8 +1,22 @@
-import { useState } from "react"
-import { Title, MainSection, GenerateButton } from "../styles/generatorStyles"
+import { useEffect, useState } from "react"
+import {
+  Title,
+  MainSection,
+  GenerateButton,
+  ImageArea,
+  DogImg,
+} from "../styles/generatorStyles"
+import { fetchImage } from "../fetchImage"
 
 const Generator = () => {
   const [isButtonActive, setIsButtonActive] = useState(false)
+  const [image, setImage] = useState("")
+
+  useEffect(() => {
+    fetchImage().then((url) => {
+      setImage(url)
+    })
+  }, [])
 
   return (
     <MainSection>
@@ -15,6 +29,9 @@ const Generator = () => {
       >
         Gerar
       </GenerateButton>
+      <ImageArea>
+        <DogImg alt="Dog" src={image} />
+      </ImageArea>
     </MainSection>
   )
 }

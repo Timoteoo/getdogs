@@ -25,4 +25,13 @@ const GenerateButton = styled.button`
   top: ${(props) => props.top};
 `
 
-export { Title, MainSection, GenerateButton }
+const ImageArea = styled.section`
+  margin-top: 20px;
+`
+
+const DogImg = styled.img`
+  max-width: 600px;
+  max-height: 400px;
+`
+
+export { Title, MainSection, GenerateButton, ImageArea, DogImg }
