@@ -21,7 +21,7 @@ const Generator = () => {
   return (
     <MainSection>
       <Title>GetDogs</Title>
-      <p>Pronto para achar a imagem perfeita? Clique no botão abaixo!</p>
+      <p>Ready to find the most beautiful dog? Click the button below!</p>
       <GenerateButton
         top={isButtonActive ? "2px" : "0"}
         onMouseDown={() => setIsButtonActive(true)}
