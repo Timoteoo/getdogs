@@ -30,6 +30,7 @@ const ImageArea = styled.section`
 `
 
 const DogImg = styled.img`
+  width: 100%;
   max-width: 600px;
   max-height: 400px;
 `

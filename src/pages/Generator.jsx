@@ -6,15 +6,26 @@ import {
   ImageArea,
   DogImg,
 } from "../styles/generatorStyles"
+import Loading from "react-spinners/ScaleLoader"
 import { fetchImage } from "../fetchImage"
 
 const Generator = () => {
   const [isButtonActive, setIsButtonActive] = useState(false)
   const [image, setImage] = useState("")
+  const [isLoading, setIsLoading] = useState(true)
+
+  const getImage = () => {
+    setIsLoading(true)
+    fetchImage().then((url) => {
+      setImage(url)
+      setIsLoading(false)
+    })
+  }
 
   useEffect(() => {
     fetchImage().then((url) => {
       setImage(url)
+      setIsLoading(false)
     })
   }, [])
 
@@ -26,11 +37,16 @@ const Generator = () => {
         top={isButtonActive ? "2px" : "0"}
         onMouseDown={() => setIsButtonActive(true)}
         onMouseUp={() => setIsButtonActive(false)}
+        onClick={getImage}
       >
         Generate
       </GenerateButton>
       <ImageArea>
-        <DogImg alt="Dog" src={image} />
+        {isLoading ? (
+          <Loading color="#59b2dd" />
+        ) : (
+          <DogImg alt="Dog" src={image} />
+        )}
       </ImageArea>
     </MainSection>
   )
