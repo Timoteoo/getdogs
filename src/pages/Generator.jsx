@@ -27,7 +27,7 @@ const Generator = () => {
         onMouseDown={() => setIsButtonActive(true)}
         onMouseUp={() => setIsButtonActive(false)}
       >
-        Gerar
+        Generate
       </GenerateButton>
       <ImageArea>
         <DogImg alt="Dog" src={image} />
