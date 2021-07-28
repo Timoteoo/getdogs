@@ -1,17 +1,10 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { createGlobalStyle } from "styled-components"
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    font-family: 'Secular One', sans-serif;
-  }
-`
+import App from "./App"
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <h1>Hello</h1>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 )
